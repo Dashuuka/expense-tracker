@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Expense Tracker</string>
+    <string name="home">Home</string>
+    <string name="stats">Statistics</string>
+    <string name="settings">Settings</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="edit_transaction">Edit Transaction</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="amount">Amount</string>
+    <string name="note">Note</string>
+    <string name="category">Category</string>
+    <string name="date">Date</string>
+    <string name="income">Income</string>
+    <string name="expense">Expense</string>
+    <string name="balance">Balance</string>
+    <string name="no_transactions">No transactions yet</string>
+    <string name="add_first_transaction">Tap + to add your first one</string>
+    <string name="notification_channel_currency">Currency Rate Updates</string>
+    <string name="notification_channel_budget">Budget Alerts</string>
+    <string name="delete_transaction_title">Delete transaction?</string>
+    <string name="delete_transaction_body">This action cannot be undone.</string>
+    <string name="error_invalid_amount">Please enter a valid amount</string>
+    <string name="error_select_category">Please select a category</string>
+</resources>
