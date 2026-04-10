@@ -138,8 +138,8 @@ class BalanceCalculatorTest {
             makeTransaction(3, 50.0,  isIncome = false).copy(category = cat2),
         )
         val grouped = groupExpensesByCategory(transactions)
-        assertEquals(300.0, grouped[sampleCategory.id], 0.001)
-        assertEquals(50.0, grouped[cat2.id], 0.001)
+        assertEquals(300.0, grouped[sampleCategory.id] ?: 0.0, 0.001)
+        assertEquals(50.0, grouped[cat2.id] ?: 0.0, 0.001)
     }
 
     @Test
@@ -149,7 +149,7 @@ class BalanceCalculatorTest {
             makeTransaction(2, 100.0, isIncome = false).copy(category = sampleCategory),
         )
         val grouped = groupExpensesByCategory(transactions)
-        assertEquals(100.0, grouped[sampleCategory.id], 0.001)
+        assertEquals(100.0, grouped[sampleCategory.id] ?: 0.0, 0.001)
         assertNull(grouped[null])
     }
 
