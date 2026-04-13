@@ -111,8 +111,6 @@ jobs:
             --device model=cheetah,version=33,locale=en,orientation=portrait \
             --device model=shiba,version=34,locale=en,orientation=portrait \
             --timeout 5m \
-            --results-bucket ${{ secrets.FIREBASE_RESULTS_BUCKET }} \
-            --results-dir "ui-tests-${{ github.run_id }}"
 
       - name: Upload Firebase test results
         if: always()
