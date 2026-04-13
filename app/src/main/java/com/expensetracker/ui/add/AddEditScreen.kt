@@ -59,19 +59,6 @@ fun AddEditScreen(
                     IconButton(onClick = onNavigateBack) {
                         Icon(Icons.Filled.ArrowBack, contentDescription = "Back")
                     }
-                },
-                actions = {
-                    if (uiState.isLoading) {
-                        CircularProgressIndicator(
-                            modifier = Modifier
-                                .size(24.dp)
-                                .padding(end = 16.dp)
-                        )
-                    } else {
-                        IconButton(onClick = viewModel::saveTransaction) {
-                            Icon(Icons.Filled.Check, contentDescription = "Save")
-                        }
-                    }
                 }
             )
         }

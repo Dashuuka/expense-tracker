@@ -96,20 +96,6 @@ fun StatsScreen(viewModel: StatsViewModel = hiltViewModel()) {
                     }
                 }
             }
-
-            // Daily bar chart
-            if (uiState.dailyTotals.isNotEmpty()) {
-                item {
-                    Text(
-                        "Daily Overview",
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold
-                    )
-                }
-                item {
-                    DailyBarChart(dailyTotals = uiState.dailyTotals)
-                }
-            }
         }
     }
 }
@@ -231,42 +217,3 @@ fun CategoryExpenseRow(expense: CategoryExpense) {
     }
 }
 
-@Composable
-fun DailyBarChart(dailyTotals: List<DailyTotal>) {
-    val maxVal = dailyTotals.maxOfOrNull { maxOf(it.income, it.expense) }.takeIf { it != null && it > 0 } ?: 1.0
-
-    Card(shape = RoundedCornerShape(16.dp)) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp),
-                verticalAlignment = Alignment.Bottom,
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
-            ) {
-                dailyTotals.takeLast(14).forEach { day ->
-                    val expFrac = (day.expense / maxVal).toFloat().coerceIn(0f, 1f)
-                    Column(
-                        modifier = Modifier.weight(1f),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.Bottom
-                    ) {
-                        Box(
-                            modifier = Modifier
-                                .fillMaxWidth(0.7f)
-                                .fillMaxHeight(expFrac)
-                                .clip(RoundedCornerShape(topStart = 4.dp, topEnd = 4.dp))
-                                .background(MaterialTheme.colorScheme.error.copy(alpha = 0.7f))
-                        )
-                    }
-                }
-            }
-            Spacer(Modifier.height(4.dp))
-            Text(
-                "Last 14 days — red = expenses",
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
-            )
-        }
-    }
-}
