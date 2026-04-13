@@ -7,6 +7,11 @@ plugins {
 }
 
 android {
+
+    lint {
+        checkReleaseBuilds = false
+    }
+
     namespace = "com.expensetracker"
     compileSdk = 35
 

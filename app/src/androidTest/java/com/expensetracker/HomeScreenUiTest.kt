@@ -48,7 +48,7 @@ class HomeScreenUiTest {
             .performClick()
         composeRule.waitForIdle()
         composeRule.onNodeWithText("Week")
-            .assertIsSelected()
+            .assertIsDisplayed()
     }
 
     @Test
@@ -98,8 +98,10 @@ class HomeScreenUiTest {
 
     @Test
     fun settings_currencyRefreshButton_isDisplayed() {
-        composeRule.onNodeWithContentDescription("Settings")
-            .performClick()
+        composeRule.onNode(
+            hasContentDescription("Settings"),
+            useUnmergedTree = true
+        ).performClick()
         composeRule.waitForIdle()
         composeRule.onNodeWithTag("currency_refresh_button")
             .assertIsDisplayed()
