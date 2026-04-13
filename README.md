@@ -21,7 +21,7 @@ ExpenseTracker построен на Kotlin и Jetpack Compose с использ
 
 1. Клонируйте репозиторий:
 ```
-git clone https://github.com/DashaSidorskaya/expense-tracker.git
+git clone https://github.com/Dashuuka/expense-tracker.git
 ```
 2. Откройте папку проекта в Android Studio (версия Hedgehog 2023.1.1+).
 3. Дождитесь синхронизации Gradle — все зависимости загрузятся автоматически.
