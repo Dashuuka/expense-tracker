@@ -44,8 +44,11 @@ class HomeScreenUiTest {
 
     @Test
     fun periodSelector_selectWeek_updates() {
-        composeRule.onNodeWithText("Week").performClick()
-        composeRule.onNodeWithText("Week").assertIsSelected()
+        composeRule.onNodeWithText("Week")
+            .performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText("Week")
+            .assertIsSelected()
     }
 
     @Test
@@ -95,8 +98,11 @@ class HomeScreenUiTest {
 
     @Test
     fun settings_currencyRefreshButton_isDisplayed() {
-        composeRule.onNodeWithText("Settings").performClick()
-        composeRule.onNodeWithContentDescription("Refresh rates").assertIsDisplayed()
+        composeRule.onNodeWithContentDescription("Settings")
+            .performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithTag("currency_refresh_button")
+            .assertIsDisplayed()
     }
 
     @Test
