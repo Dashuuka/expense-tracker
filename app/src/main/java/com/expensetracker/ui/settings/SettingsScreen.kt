@@ -138,28 +138,8 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
 
             item {
                 SettingsCard {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp, vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text("Rates vs BYN", style = MaterialTheme.typography.bodyMedium, modifier = Modifier.weight(1f))
-                        if (uiState.isLoadingRates) {
-                            CircularProgressIndicator(modifier = Modifier.size(20.dp), strokeWidth = 2.dp)
-                        } else {
-                            IconButton(onClick = viewModel::refreshRates) {
-                                Icon(Icons.Filled.Refresh, contentDescription = "Refresh rates")
-                            }
-                        }
-                    }
-                    if (uiState.ratesError != null) {
-                        Text(
-                            "Error: ${uiState.ratesError}",
-                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 4.dp),
-                            color = MaterialTheme.colorScheme.error,
-                            style = MaterialTheme.typography.bodySmall
-                        )
+                    Column(modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)) {
+                        Text("Rates vs BYN", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Medium)
                     }
                     uiState.currencyRates.forEach { rate ->
                         HorizontalDivider()
@@ -178,14 +158,6 @@ fun SettingsScreen(viewModel: SettingsViewModel = hiltViewModel()) {
                                 style = MaterialTheme.typography.bodyMedium
                             )
                         }
-                    }
-                    if (uiState.currencyRates.isEmpty() && !uiState.isLoadingRates) {
-                        Text(
-                            "Tap refresh to load rates",
-                            modifier = Modifier.padding(16.dp),
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant
-                        )
                     }
                 }
             }
