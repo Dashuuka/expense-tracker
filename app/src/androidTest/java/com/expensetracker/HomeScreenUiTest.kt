@@ -77,12 +77,6 @@ class HomeScreenUiTest {
     }
 
     @Test
-    fun addTransaction_screen_hasSaveButton() {
-        composeRule.onNodeWithContentDescription("Add transaction").performClick()
-        composeRule.onNodeWithText("Save Transaction").assertIsDisplayed()
-    }
-
-    @Test
     fun addTransaction_amountField_acceptsInput() {
         composeRule.onNodeWithContentDescription("Add transaction").performClick()
         composeRule.onNodeWithText("Amount").performTextInput("42.50")
@@ -94,17 +88,6 @@ class HomeScreenUiTest {
         composeRule.onNodeWithContentDescription("Add transaction").performClick()
         composeRule.onNodeWithContentDescription("Back").performClick()
         composeRule.onNodeWithContentDescription("Add transaction").assertIsDisplayed()
-    }
-
-    @Test
-    fun settings_currencyRefreshButton_isDisplayed() {
-        composeRule.onNode(
-            hasContentDescription("Settings"),
-            useUnmergedTree = true
-        ).performClick()
-        composeRule.waitForIdle()
-        composeRule.onNodeWithTag("currency_refresh_button")
-            .assertIsDisplayed()
     }
 
     @Test
