@@ -63,8 +63,4 @@ class SettingsViewModel @Inject constructor(
     fun setNotificationsEnabled(enabled: Boolean) {
         viewModelScope.launch { settingsRepository.setNotificationsEnabled(enabled) }
     }
-
-    fun refreshRates() {
-        viewModelScope.launch { currencyRepository.refreshRates() }
-    }
 }
